@@ -4,7 +4,7 @@
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python)](https://python.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-> **Live Demo →** [alpharisk.streamlit.app](https://your-app.streamlit.app)
+> **Live Demo →** [riskindices.streamlit.app](https://your-app.streamlit.app)
 
 AlphaRisk computes two **axiomatic, decision-theoretic risk indices** — the **Aumann-Serrano (AS) Index** and the **Foster-Hart (FH) Index** — for any asset fetchable via Yahoo Finance. These measures are grounded in expected-utility theory and provide guarantees that the Sharpe ratio fundamentally cannot: they are monotone under first- and second-order stochastic dominance, and the FH index directly implies a *bankruptcy-avoidance wealth threshold*.
 
