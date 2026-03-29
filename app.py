@@ -1,45 +1,7 @@
 import streamlit as st
 import yfinance as yf
-import numpy as np
-import pandas as pd  # <--- Added this missing import
-from scipy.optimize import brentq
-
-# --- CORE MATH LOGIC ---
-
-def calculate_as_index(returns):
-    """Calculates the Aumann-Serrano Risk Index."""
-    if returns is None or len(returns) < 2: return np.nan
-    returns = np.array(returns).flatten()
-    mu = np.mean(returns)
-    if mu <= 0: return np.inf
-    
-    def objective(alpha):
-        # We use a safety clip to prevent overflow in exp
-        return np.mean(np.exp(np.clip(-alpha * returns, -100, 100))) - 1
-    
-    try:
-        alpha_star = brentq(objective, 1e-10, 100)
-        return 1 / alpha_star
-    except:
-        return np.nan
-
-def calculate_fh_index(returns):
-    """Calculates the Foster-Hart Risk Index."""
-    if returns is None or len(returns) < 2: return np.nan
-    returns = np.array(returns).flatten()
-    mu = np.mean(returns)
-    max_loss = -np.min(returns)
-    
-    if mu <= 0: return np.inf
-    if max_loss <= 0: return 0.0
-
-    def objective(R):
-        return np.mean(np.log(1 + returns / R))
-    
-    try:
-        return brentq(objective, max_loss + 1e-8, max_loss * 100000)
-    except:
-        return np.nan
+import pandas as pd
+from riskengine import calculate_as_index, calculate_fh_index
 
 # --- STREAMLIT UI ---
 
