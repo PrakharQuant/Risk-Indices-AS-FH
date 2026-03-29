@@ -1,4 +1,4 @@
-# 🛡️ AlphaRisk — Objective Risk Measures Beyond the Sharpe Ratio
+# 🛡️ AlphaRisk : Objective Risk Measures Beyond the Sharpe Ratio
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://your-app.streamlit.app)
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python)](https://python.org)
@@ -37,7 +37,7 @@ Equivalently, ρ = 1/α where α solves the MGF equation M_X(−α) = 1. This ca
 **Key properties:**
 - **Homogeneous of degree 1:** scaling a position by λ scales its AS index by λ
 - **Duality with CARA utility:** ρ(X) is the wealth level at which an agent with u(w) = −e^(−w/ρ) is indifferent
-- **Lower is safer** — BTC will show a far higher AS index than SPY
+- **Lower is safer** : BTC will show a far higher AS index than SPY
 
 ### Foster-Hart Index
 
