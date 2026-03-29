@@ -6,13 +6,13 @@
 
 > **Live Demo →** [riskindices.streamlit.app](https://your-app.streamlit.app)
 
-AlphaRisk computes two **axiomatic, decision-theoretic risk indices** — the **Aumann-Serrano (AS) Index** and the **Foster-Hart (FH) Index** — for any asset fetchable via Yahoo Finance. These measures are grounded in expected-utility theory and provide guarantees that the Sharpe ratio fundamentally cannot: they are monotone under first- and second-order stochastic dominance, and the FH index directly implies a *bankruptcy-avoidance wealth threshold*.
+AlphaRisk computes two **axiomatic, decision-theoretic risk indices** : the **Aumann-Serrano (AS) Index** and the **Foster-Hart (FH) Index** — for any asset fetchable via Yahoo Finance. These measures are grounded in expected-utility theory and provide guarantees that the Sharpe ratio fundamentally cannot: they are monotone under first- and second-order stochastic dominance, and the FH index directly implies a *bankruptcy-avoidance wealth threshold*.
 
 ---
 
 ## Motivation
 
-The Sharpe ratio is mean-variance and implicitly assumes Gaussian returns. Real asset returns — especially crypto, options, and emerging markets — exhibit **fat tails, skewness, and excess kurtosis** that Sharpe ignores entirely. The AS and FH indices instead operate directly on the **full empirical return distribution**, making them robust to higher moments by construction.
+The Sharpe ratio is mean-variance and implicitly assumes Gaussian returns. Real asset returns, especially crypto, options, and emerging markets, exhibit **fat tails, skewness, and excess kurtosis** that Sharpe ignores entirely. The AS and FH indices instead operate directly on the **full empirical return distribution**, making them robust to higher moments by construction.
 
 | Property | Sharpe Ratio | AS Index | FH Index |
 |---|:---:|:---:|:---:|
@@ -91,13 +91,13 @@ scipy
 
 ## Usage
 
-1. Enter any Yahoo Finance ticker — equities (`TSLA`, `NIFTY50.NS`), crypto (`BTC-USD`, `ETH-USD`), or ETFs (`SPY`, `GLD`)
+1. Enter any Yahoo Finance ticker : equities (`TSLA`, `NIFTY50.NS`), crypto (`BTC-USD`, `ETH-USD`), or ETFs (`SPY`, `GLD`)
 2. Set the lookback window (30–730 days)
 3. Hit **Analyze Risk Profile**
 
 The app returns:
-- **AS Index** — lower means intrinsically safer; compare across assets on the same scale
-- **FH Minimum Wealth** — for every ₹1 (or $1) invested, you should hold at least this much total wealth to be in the "mathematically safe" regime
+- **AS Index** : lower means intrinsically safer; compare across assets on the same scale
+- **FH Minimum Wealth** : for every ₹1 (or $1) invested, you should hold at least this much total wealth to be in the "mathematically safe" regime
 
 ---
 
