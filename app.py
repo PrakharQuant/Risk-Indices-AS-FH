@@ -16,7 +16,7 @@ tab1, tab2 = st.tabs(["📈 Market Data", "🎲 Gamble Simulator"])
 
 with tab1:
     st.sidebar.header("Settings")
-    ticker = st.sidebar.text_input("Enter Ticker (e.g., BTC-USD, TSLA, SPY)", "BTC-USD")
+    ticker = st.sidebar.text_input("Enter Ticker (e.g., TSLA, SPY, NIFTY50.NS)", "")
     days = st.sidebar.slider("Analysis Window (Days)", 30, 730, 365)
 
     if st.button("Analyze Risk Profile"):
