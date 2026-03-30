@@ -2,6 +2,7 @@ import streamlit as st
 import yfinance as yf
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 from risk_engine import calculate_as_index, calculate_fh_index
 
 st.set_page_config(page_title="AlphaRisk Index", page_icon="🛡️")
@@ -44,7 +45,7 @@ with tab1:
                 st.subheader(f"Price History: {ticker}")
                 st.line_chart(prices)
 
-                import matplotlib.pyplot as plt
+               
                 st.subheader(f"Rolling 30-Day Foster-Hart Index: {ticker}")
                 rolling_fh = pd.Series(returns).rolling(window=30).apply(calculate_fh_index)
                 fig, ax = plt.subplots(figsize=(10, 4))
