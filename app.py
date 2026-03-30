@@ -97,4 +97,65 @@ with tab2:
 
         st.divider()
 
-        st.subhead
+        st.subheader("🔵 Aumann-Serrano Index — What It Means")
+        st.markdown(f"""
+        The AS index solves:
+
+        **E\[exp(−g / R)] = 1**
+
+        where g is the gamble outcome and R is the index value.
+
+        **Your gamble has an AS index of {as_val:.4f}.**
+
+        This means an investor with CARA utility and absolute risk-aversion coefficient
+        of **1 / {as_val:.2f} = {1/as_val:.5f}** is exactly indifferent between
+        taking this gamble and receiving nothing.
+
+        - If your risk aversion < {1/as_val:.5f} → you **accept** the gamble
+        - If your risk aversion > {1/as_val:.5f} → you **reject** the gamble
+
+        The AS index is **homogeneous of degree 1**: doubling the stakes doubles the index.
+        It is also monotone under first and second-order stochastic dominance —
+        a safer gamble always has a lower AS index.
+        """)
+
+        st.divider()
+
+        st.subheader("🟠 Foster-Hart Index — What It Means")
+        st.markdown(f"""
+        The FH index solves:
+
+        **E\[ln(1 + g / R)] = 0**
+
+        This is the minimum initial wealth R such that a Kelly-optimal investor
+        can avoid bankruptcy in the long run.
+
+        **Your gamble has an FH index of ${fh_val:,.2f}.**
+
+        This means:
+        - If your total wealth < **${fh_val:,.2f}** → *no strategy* can prevent eventual ruin
+        - If your total wealth ≥ **${fh_val:,.2f}** → a safe betting strategy exists
+
+        Equivalently, the maximum safe fraction of wealth to bet is
+        **$1 / ${fh_val:,.2f} = {1/fh_val:.5f}** per dollar of wealth.
+
+        The FH index is more conservative than the AS index because it accounts
+        for the path-dependent risk of ruin under repeated play — not just a
+        single-period risk-aversion threshold.
+        """)
+
+        st.divider()
+
+        st.subheader("⚖️ AS vs FH — Key Difference")
+        st.markdown(f"""
+        | | Aumann-Serrano | Foster-Hart |
+        |---|---|---|
+        | **Answers** | Who accepts this gamble? | How much wealth do you need? |
+        | **Framework** | Single-period CARA utility | Repeated play, Kelly criterion |
+        | **Your value** | {as_val:.4f} | ${fh_val:,.2f} |
+        | **Conservative?** | Less | More |
+
+        Both indices agree that this gamble is **{"relatively safe" if as_val < 0.1 else "moderately risky" if as_val < 0.3 else "high risk"}**
+        based on the AS index, and requires **{"modest" if fh_val < 500 else "substantial" if fh_val < 5000 else "very large"}**
+        capital to undertake safely according to Foster-Hart.
+        """)
