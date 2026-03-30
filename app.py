@@ -16,6 +16,7 @@ tab1, tab2 = st.tabs(["📈 Market Data", "🎲 Gamble Simulator"])
 
 # --- TAB 1: existing code ---
 with tab1:
+    st.write("TAB 2 LOADED")  # add this line temporarily
     st.sidebar.header("Settings")
     ticker = st.sidebar.text_input("Enter Ticker (e.g., BTC-USD, TSLA, SPY)", "BTC-USD")
     days = st.sidebar.slider("Analysis Window (Days)", 30, 730, 365)
